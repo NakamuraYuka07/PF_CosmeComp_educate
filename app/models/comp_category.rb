@@ -1,0 +1,2 @@
+class CompCategory < ApplicationRecord
+end
