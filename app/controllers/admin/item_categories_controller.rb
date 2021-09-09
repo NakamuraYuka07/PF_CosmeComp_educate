@@ -1,4 +1,4 @@
-class Admin::ItemCategoryController < ApplicationController
+class Admin::ItemCategoriesController < ApplicationController
     before_action :authenticate_admin!
 
   def index
