@@ -12,18 +12,18 @@
       <table class="table table-borderless">
         <tbody>
           <tr>
-            <th>商品名</th>
-            <td><%= @item.name %></td>
+            <th>カテゴリー名</th>
+            <td><%= @item.comp_category.name %></td>
           </tr>
           <tr>
-            <th>ジャンル</th>
-            <td><%= @item.comp_category.name %></td>
+            <th>商品名</th>
+            <td><%= @item.name %></td>
           </tr>
           <tr>
             <th>商品説明</th>
             <td><%= @item.explanation %></td>
           </tr>
-          
+
           <tr>
             <th>成分</th>
             <td><%= @item.component %></td>
@@ -31,7 +31,7 @@
           <tr>
             <th>販売ステータス</th>
             <td>
-              <% if @item.sale_status? %>
+              <% if @item.status? %>
                 <div class="text-success">販売</div>
               <% else %>
                 <div class="text-secondary">廃盤</div>

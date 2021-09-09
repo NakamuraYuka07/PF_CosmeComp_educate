@@ -12,15 +12,15 @@
           </tr>
           <tr>
            <td><%= f.label :商品名 ,class: "col-xs-3" %></td>
-           <td><%= f.text_field :item_name, autofocus: true, autocomplete: "item_name" ,class: "col-auto form-control form-control-md w-100"%></td>
+           <td><%= f.text_field :name, autofocus: true, autocomplete: "name" ,class: "col-auto form-control form-control-md w-100"%></td>
           </tr>
           <tr>
            <td><%= f.label :商品説明 ,class: "col-xs-3" %></td>
-           <td><%= f.text_area :item_explanation, autofocus: true, autocomplete: "explanation" ,class: "col-auto form-control form-control-md w-100"%></td>
+           <td><%= f.text_area :explanation, autofocus: true, autocomplete: "explanation" ,class: "col-auto form-control form-control-md w-100"%></td>
           </tr>
           <tr>
            <td><%= f.label :ジャンル ,class: "col-xs-3 fix" %></td>
-           <td><%= f.collection_select(:genre_id, @genres, :id, :genre_name,:prompt => "選択してください") %></td>
+           <td><%= f.collection_select(:item_category_id, @item_category, :id, :name,:prompt => "選択してください") %></td>
           </tr>
           <tr>
            <td><%= f.label :税抜価格 ,class: "col-xs-3 block"  %></td>

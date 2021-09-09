@@ -9,29 +9,29 @@
         <table class='table table-borderless'>
           <tr>
            <td><%= f.label :商品画像 ,class: "col-xs-3" %></td>
-           <td><%= f.attachment_field :item_image, autofocus: true, autocomplete: "item_image" , class: "col-xs-8" %></td>
+           <td><%#= f.attachment_field :item_image, autofocus: true, autocomplete: "item_image" , class: "col-xs-8" %></td>
+          </tr>
+          <tr>
+           <td><%= f.label :商品カテゴリー ,class: "col-xs-3 fix" %></td>
+           <td><%= f.collection_select(:item_category_id, @item_category, :id, :name,:prompt => "--選択してください--") %></td>
           </tr>
           <tr>
            <td><%= f.label :商品名 ,class: "col-xs-3" %></td>
-           <td><%= f.text_field :item_name, autofocus: true, autocomplete: "item_name" , placeholder: "商品名", class: "col-auto form-control form-control-md w-100" %></td>
+           <td><%= f.text_field :name, autofocus: true, autocomplete: "name" , placeholder: "商品名", class: "col-auto form-control form-control-md w-100" %></td>
           </tr>
           <tr>
            <td><%= f.label :商品説明 ,class: "col-xs-3" %></td>
-           <td><%= f.text_area :item_explanation, autofocus: true, autocomplete: "explanation" , placeholder: "ここに説明文を記述します", class: "col-auto form-control form-control-md w-100" %></td>
+           <td><%= f.text_area :explanation, autofocus: true, autocomplete: "explanation" , placeholder: "ここに説明文を記述します", class: "col-auto form-control form-control-md w-100" %></td>
           </tr>
           <tr>
-           <td><%= f.label :ジャンル ,class: "col-xs-3 fix" %></td>
-           <td><%= f.collection_select(:genre_id, @genres, :id, :genre_name,:prompt => "--選択してください--") %></td>
-          </tr>
-          <tr>
-           <td><%= f.label :税抜価格 ,class: "col-xs-3 block"  %></td>
-           <td><%= f.text_field :non_taxed_price, autofocus: true, autocomplete: "non_taxed_price" , placeholder: "1000", class: "col-auto form-control form-control-md w-50" %></td>
+           <td><%= f.label :成分 ,class: "col-xs-3 block"  %></td>
+           <td><%= f.text_area :component, autofocus: true, autocomplete: "component" , placeholder: "1000", class: "col-auto form-control form-control-md w-50" %></td>
           </tr>
           <tr>
            <td><%= f.label :販売ステータス  ,class: "col-xs-3 fix" %></td>
            <td>
-            <%= f.radio_button :sale_status, :true %> 販売中
-            <%= f.radio_button :sale_status, :false %> 販売停止中
+            <%= f.radio_button :status, :true %> 販売
+            <%= f.radio_button :status, :false %> 廃盤
            </td>
           </tr>
           <tr>
