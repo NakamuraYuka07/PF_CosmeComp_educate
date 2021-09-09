@@ -1,0 +1,2 @@
+module Admin::ItemCategoryHelper
+end

@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row mt-4 mb-3">
+   <div class="d-flex justify-content-between w-100">
+     <h4 class="p-3 mb-2 text-dark w-25 text-center" style="color: #494949; background: #80aba9; border-left: solid 5px #2f4f4f;">商品一覧</h4>
+     <h1>
+       <%= link_to new_admin_item_path, class: "text-right" do %>
+        <i class="fas fa-plus-circle text-info"></i>
+       <%end%>
+     </h1>
+   </div>
+    <table class="table table-hover mt-4">
+      <thead>
+        <tr class="thead" style="background-color: #bed3ca;">
+          <th>商品ID</th>
+          <th>商品名</th>
+          <th>ジャンル</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
+          <tr>
+            <td><%= attachment_image_tag item, :item_image , format: 'jpg', fallback: "no_image.jpg", size: "50x50" %></td>
+            <td><%= link_to item.item_name,admin_item_path(item), class:"text-secondary" %></td>
+            <td><%= item.item_category.name %></td>
+            <td><%= item.status %></td>
+            <td>
+              <% if item.sale_status? %>
+                <p class="text-success">販売</p>
+              <% else %>
+                <p class="text-secondary">廃盤</p>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
