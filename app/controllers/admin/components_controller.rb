@@ -8,5 +8,21 @@ class Admin::ComponentsController < ApplicationController
   def show
     @component = Component.find(params[:id])
   end
+  
+  def new
+    @component = Component.new
+    @comp_category = CompCategory.all
+  end
+
+  def create
+    component = Component.new(component_params)
+    component.save
+    redirect_to admin_components_path
+  end
+  
+  private
+  def component_params
+    params.require(:component).permit(:name, :explanation, :status, :comp_category_id)
+  end
 
 end
