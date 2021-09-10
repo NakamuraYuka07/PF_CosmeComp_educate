@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row mt-5 mb-4">
+    <div class="col-3 col-md-6">
+      <h4 class="p-3 mb-2 w-50 text-center" style="color: #494949; background: #80aba9; border-left: solid 5px #2f4f4f;">成分詳細</h4>
+    </div>
+  </div>
+  <div class="row mt-4 mb-5">
+
+    <div class="col-8">
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <th>成分カテゴリー名</th>
+            <td><%= @component.comp_category.name %></td>
+          </tr>
+          <tr>
+            <th>商品名</th>
+            <td><%= @component.name %></td>
+          </tr>
+          <tr>
+            <th>成分説明</th>
+            <td><%= @component.explanation %></td>
+          </tr>
+          <tr>
+            <th>ステータス</th>
+            <td>
+              <% if @component.status? %>
+                <div class="text-success">現在使用可能</div>
+              <% else %>
+                <div class="text-secondary">現在使用不可</div>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row mt-5">
+		<div class="col-4 offset-4">
+		  <div class="text-center">
+		    <%= link_to "編集する" ,edit_admin_compoent_path(@component), class: "btn btn-outline-success" %>
+		  </div>
+		</div>
+	</div>
+</div>
