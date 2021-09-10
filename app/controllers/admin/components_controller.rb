@@ -16,7 +16,18 @@ class Admin::ComponentsController < ApplicationController
 
   def create
     component = Component.new(component_params)
-    component.save
+    component.save!
+    redirect_to admin_components_path
+  end
+  
+  def edit
+    @component = Component.find(params[:id])
+    @comp_category = CompCategory.all
+  end
+
+  def update
+    @component = Component.find(params[:id])
+    @component.update(component_params)
     redirect_to admin_components_path
   end
   

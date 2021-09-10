@@ -12,7 +12,7 @@
       <thead>
         <tr class="thead" style="background-color: #bed3ca;">
           <th>成分ID</th>
-          <th>成分カテゴリー</th>
+          <th>成分カテゴリー名</th>
           <th>成分名</th>
           <th>ステータス</th>
         </tr>
@@ -20,14 +20,14 @@
       <tbody>
         <% @components.each do |component| %>
           <tr>
+            <td><%= component.comp_category_id %></td>
+            <td><%#= component.comp_category.name %></td>
             <td><%= link_to component.name,admin_component_path(component), class:"text-secondary" %></td>
-            <td><%= component.comp_category.name %></td>
-            <td><%= component.status %></td>
             <td>
               <% if component.status? %>
-                <p class="text-success">販売</p>
+                <p class="text-success">現在使用可能</p>
               <% else %>
-                <p class="text-secondary">廃盤</p>
+                <p class="text-secondary">現在使用不可</p>
               <% end %>
             </td>
           </tr>

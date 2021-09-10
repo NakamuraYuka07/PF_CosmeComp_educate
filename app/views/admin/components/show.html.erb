@@ -11,7 +11,7 @@
         <tbody>
           <tr>
             <th>成分カテゴリー名</th>
-            <td><%= @component.comp_category.name %></td>
+            <td><%#= @component.comp_category.name %></td>
           </tr>
           <tr>
             <th>商品名</th>
@@ -38,7 +38,7 @@
   <div class="row mt-5">
 		<div class="col-4 offset-4">
 		  <div class="text-center">
-		    <%= link_to "編集する" ,edit_admin_compoent_path(@component), class: "btn btn-outline-success" %>
+		    <%= link_to "編集する" ,edit_admin_component_path(@component), class: "btn btn-outline-success" %>
 		  </div>
 		</div>
 	</div>

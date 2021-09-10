@@ -8,7 +8,7 @@ class Admin::CompCategoriesController < ApplicationController
 
   def create
     @comp_category = CompCategory.new(comp_category_params)
-    if @comp_category.save
+    if @comp_category.save!
       redirect_back(fallback_location: root_path)
     else
       @comp_categories = CompCategory.all
