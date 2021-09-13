@@ -9,17 +9,19 @@
           <td><%= @user.id %></td>
         </tr>
         <tr>
+          <td><%= f.label :ニックネーム , class: "float-left" %></td>
+          <td><%= f.text_field :nickname, class:"form-control" %></td>
+        </tr>
+        <tr>
           <td><%= f.label:生年月日, class: "float-left" %></td>
           <td><%= f.text_field :birth_year, class:"form-control" %></td>
           <td><%= f.text_field :birth_month, class:"form-control" %></td>
           <td><%= f.text_field :birth_day, class:"form-control" %></td>
         </tr>
-
         <tr>
           <td><%= f.label :年齢, class: "float-left" %></td>
           <td><%= f.text_field :age, class:"form-control" %></td>
         </tr>
- 
         <tr>
           <td><%= f.label :肌質 , class: "float-left" %></td>
           <td><%= f.text_field :skin_type, class:"form-control" %></td>

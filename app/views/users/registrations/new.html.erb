@@ -20,6 +20,29 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+  
+  <div class="field">
+    <%= f.label :ニックネーム %><br />
+    <%= f.text_field :nickname, autocomplete: "nickname" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :生年月日 %><br />
+    <%= f.text_field :birth_year, autocomplete: "birth_year" %>
+    <%= f.text_field :birth_month, autocomplete: "birth_month" %>
+    <%= f.text_field :birth_day, autocomplete: "birth_day" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :年齢 %><br />
+    <%= f.text_field :age, autocomplete: "age" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :肌質 %><br />
+    <%= select :user, :skin_type, User.skin_types.keys.to_a, include_blank: true %>
+  </div>
+  
 
   <div class="actions">
     <%= f.submit "Sign up" %>

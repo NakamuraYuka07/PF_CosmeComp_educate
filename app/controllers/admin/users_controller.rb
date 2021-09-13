@@ -23,6 +23,6 @@ class Admin::UsersController < ApplicationController
   
   protected
   def user_params
-    params.require(:user).permit(:last_name, :first_name, :kana_last_name, :kana_first_name, :cust_postal_code, :cust_address, :phone_number, :email, :is_deleted)
+    params.require(:user).permit(:nickname, :birth_year, :birth_month, :birth_day, :age, :skin_type, :is_deleted)
   end
 end

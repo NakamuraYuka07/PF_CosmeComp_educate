@@ -1,0 +1,47 @@
+<!-- 会員詳細画面-->
+<div class="container mx-5">
+  <div class="row mx-5">
+    <h3 class="col-3 my-3 mx-5 text-center" style="background-color:#a99e93;">マイページ</h3>
+  </div>
+  <div class="row my-3">
+    <h4 class="mx-2 col-3"><strong>登録情報</strong></h4>
+    <%= link_to "編集する", edit_user_path(current_user), method: :get, class: "col-2 btn btn-outline-success mx-2" %>
+  </div>
+  <div class="row my-2">
+    <table class="table table-bordered table-hover col-6">
+      <tr>
+        <td>会員ID</td>
+        <td><%= @user.id %></td>
+      </tr>
+      <tr>
+        <td>ニックネーム</td>
+        <td><%= @user.nickname %></td>
+      </tr>
+      <tr>
+        <td>生年月日（西暦）</td>
+        <td><%= @user.birth_year %>年<%= @user.birth_month %>月<%= @user.birth_day %>日</td>
+      </tr>
+        <tr>
+          <td>年齢</td>
+          <td><%= @user.age %></td>
+        </tr>
+        <tr>
+          <td>肌質</td>
+          <td><%= @user.skin_type %></td>
+        </tr>
+        <tr>
+          <td>お気に入り商品一覧</td>
+          <td><%#= @user.favorite.items %></td>
+        </tr>
+        <tr>
+          <td>会員ステータス</td>
+          <td>
+            <% if @user.is_deleted == true%>
+              <p class="text-secondary">退会済</p>
+            <% else %>
+              <p class="text-success">有効</p>
+            <% end %>
+          </td>
+        </tr>
+    </table>
+  </div>
