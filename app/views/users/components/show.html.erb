@@ -1,0 +1,21 @@
+<div class="container px-5 px-sm-0">
+  <div class="row mt-5 mb-5">
+    <div class="col-2 col-md-2">
+      <!-- 利用者情報サイドバー  -->
+      <%= render 'users/users/info', user: current_user %>
+    </div>
+    <div class="col-md-8">
+
+      <!-- 商品詳細 -->
+      <div class="item-detail">
+        <h3><strong><%= @component.name %></strong></h3>
+        <p><%= @component.explanation %></p>
+      </div>
+
+    </div>
+    <div class="col-md-2">
+      <!-- ジャンル検索サイドバー  -->
+      <%= render 'users/items/category', categories: @categories %>
+    </div>
+  </div>
+</div>

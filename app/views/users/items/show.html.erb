@@ -1,0 +1,25 @@
+<div class="container px-5 px-sm-0">
+  <div class="row mt-5 mb-5">
+    <div class="col-2 col-md-2">
+      <!-- 利用者情報サイドバー  -->
+      <%= render 'info', user: current_user %>
+    </div>
+    <div class="col-md-8">
+      <!-- 商品イメージ -->
+      <div class="item-image">
+        <%= attachment_image_tag @item, :item_image, format: 'jpg',  fallback: "no_image.jpg", size: "400x300" %>
+      </div>
+      <!-- 商品詳細 -->
+      <div class="item-detail">
+        <h3><strong><%= @item.name %></strong></h3>
+        <p><%= @item.explanation %></p>
+        <p><%= @item.component %></p>
+      </div>
+      
+    </div>
+    <div class="col-md-2">
+      <!-- ジャンル検索サイドバー  -->
+      <%= render 'customers/items/genre_sidebar', categories: @categories %>
+    </div>
+  </div>
+</div>
