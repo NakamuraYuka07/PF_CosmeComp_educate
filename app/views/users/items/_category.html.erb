@@ -11,7 +11,7 @@
     <% categories.each do |category| %>
     <tr>
       <td>
-        <%= link_to category.name, search_path(category.id), :style=> "color: #96514d;" %>
+        <%= link_to category.name, item_search_path(category.id), :style=> "color: #96514d;" %>
       </td>
     </tr>
     <% end %>

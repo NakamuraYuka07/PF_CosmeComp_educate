@@ -7,6 +7,8 @@ class Users::ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @categories = ItemCategory.all
+    @comment = Comment.new
   end
+  
   
 end

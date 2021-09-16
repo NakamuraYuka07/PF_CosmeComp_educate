@@ -17,16 +17,17 @@ Rails.application.routes.draw do
     get '/users/check' => "users#check", as: 'users_check'
     put "/users/hide" => "users#hide", as: 'users_hide'
     get 'search' => 'items#search'
-    resources :items, only: [:show, :index] do
-      resource :favorites, only: [:create, :destroy]
-      resources :comments, only: [:create, :destroy]
-    end
     get 'item_categories/index'
     get 'item_categories/:id/item_search', to: 'item_categories#search', as: 'item_search'
     get 'search' => 'compnents#search'
     resources :components, only: [:show, :index]
     get 'comp_categories/index'
     get 'comp_categories/:id/comp_search', to: 'comp_categories#search', as: 'comp_search'
+    resources :items, only: [:show, :index] do
+      resource :favorites, only: [:create, :destroy]
+      resources :comments, only: [:create, :destroy]
+    end
+
   end
   
   namespace :admin do
