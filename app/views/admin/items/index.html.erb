@@ -21,11 +21,11 @@
         <% @items.each do |item| %>
           <tr>
             <td><%= attachment_image_tag item, :item_image , format: 'jpg', fallback: "no_image.jpg", size: "50x50" %></td>
-            <td><%= link_to item.item_name,admin_item_path(item), class:"text-secondary" %></td>
+            <td><%= link_to item.name,admin_item_path(item), class:"text-secondary" %></td>
             <td><%= item.item_category.name %></td>
             <td><%= item.status %></td>
             <td>
-              <% if item.sale_status? %>
+              <% if item.status? %>
                 <p class="text-success">販売</p>
               <% else %>
                 <p class="text-secondary">廃盤</p>

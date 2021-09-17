@@ -7,7 +7,7 @@ class Item < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
   
-  attachment :item_image_url
+  attachment :item_image
   validates :name, presence: true
   validates :explanation, presence: true
   validates :component, presence: true

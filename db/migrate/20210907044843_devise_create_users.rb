@@ -33,16 +33,15 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.datetime :locked_at
       
       t.string :nickname
-      t.text :profile_image_url
-      t.string :birth_year
-      t.string :birth_month
-      t.string :birth_day
-      t.string :age
-      t.string :skin_type
+      t.string :profile_image_id
+      t.integer :age, default: 0
+      t.integer :birth_month, default: 0
+      t.integer :birth_day, default: 0
+      t.integer :skin_type, default: 0
       t.integer :favorite_item
       t.integer :favorite_id
       t.integer :comment_id
-      t.boolean :is_deleted
+      t.boolean :is_deleted, default: false
 
 
       t.timestamps null: false

@@ -5,6 +5,7 @@ class CreateComponents < ActiveRecord::Migration[5.2]
       t.integer :comp_category_id, null: false
       t.string :name, null: false
       t.text :explanation, null: false
+      t.boolean :status, default: false
 
       t.timestamps
     end
