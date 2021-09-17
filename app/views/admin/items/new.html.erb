@@ -13,7 +13,8 @@
           </tr>
           <tr>
            <td><%= f.label :商品カテゴリー ,class: "col-xs-3 fix" %></td>
-           <td><%= f.collection_select(:item_category_id, @item_category, :id, :name,:prompt => "--選択してください--") %></td>
+           <td><%#= f.collection_select(:item_category_id, @item_category, :id, :name,:prompt => "--選択してください--") %></td>
+           <td><%= f.collection_select(:item_category_id, ItemCategory.all, :id, :name,:prompt => "--選択してください--") %></td>
           </tr>
           <tr>
            <td><%= f.label :商品名 ,class: "col-xs-3" %></td>

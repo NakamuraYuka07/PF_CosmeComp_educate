@@ -4,9 +4,13 @@
     <h2 class="mx-5 col-4 text-center" style="background-color:#a99e93;">利用者情報編集</h2>
   </div>
   <%= form_with model: @user, url: user_path, local: true do |f| %>
-  <div class="col-8">
-    <table class="table table-borderless">
-  <tr>
+    <div class="col-8">
+      <table class="table table-borderless">
+        <tr>
+          <td><%= f.label:プロフィールし画像 %></td>
+          <td><%#= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %></td>
+        </tr>
+        <tr>
           <td><%= f.label:会員ID , class: "float-left" %></td>
           <td><%= @user.id %></td>
         </tr>
