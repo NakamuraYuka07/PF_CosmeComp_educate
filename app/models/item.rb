@@ -1,6 +1,5 @@
 class Item < ApplicationRecord
   belongs_to :item_category
-  belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   def favorited_by?(user)
@@ -11,6 +10,6 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :explanation, presence: true
   validates :component, presence: true
-  validates :item_category_id, presence: true
+  #validates :item_category_id, presence: true
 
 end

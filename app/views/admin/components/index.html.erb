@@ -21,7 +21,7 @@
         <% @components.each do |component| %>
           <tr>
             <td><%= component.comp_category_id %></td>
-            <td><%#= component.comp_category.name %></td>
+            <td><%= component.comp_category.name %></td>
             <td><%= link_to component.name,admin_component_path(component), class:"text-secondary" %></td>
             <td>
               <% if component.status? %>

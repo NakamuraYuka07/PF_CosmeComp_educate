@@ -15,8 +15,10 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
+    p item_params
     @item = Item.new(item_params)
-    if @item.save
+    p @item
+    if @item.save!
       redirect_to admin_items_path
     else
       render :new
@@ -25,7 +27,7 @@ class Admin::ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    @item_category = Item_category.all
+    @item_category = ItemCategory.all
   end
 
   def update

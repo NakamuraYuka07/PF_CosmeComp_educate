@@ -61,9 +61,7 @@ ActiveRecord::Schema.define(version: 2021_09_07_050848) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.integer "comment_id", null: false
     t.integer "item_category_id", null: false
-    t.integer "favorite_id", null: false
     t.string "name", null: false
     t.string "item_image_id", null: false
     t.text "explanation", null: false

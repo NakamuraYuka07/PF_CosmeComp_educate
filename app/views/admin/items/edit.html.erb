@@ -23,10 +23,6 @@
            <td><%= f.collection_select(:item_category_id, @item_category, :id, :name,:prompt => "選択してください") %></td>
           </tr>
           <tr>
-           <td><%= f.label :税抜価格 ,class: "col-xs-3 block"  %></td>
-           <td><%= f.text_field :non_taxed_price, autofocus: true, autocomplete: "non_taxed_price" ,class: "col-auto form-control form-control-md w-50"%></td>
-          </tr>
-          <tr>
            <td><%= f.label :販売ステータス  ,class: "col-xs-3 fix" %></td>
            <td>
             <%= f.radio_button :sale_status, :true %> 販売中

@@ -1,3 +1,3 @@
 class Component < ApplicationRecord
-  belongs_to :comp_categories, optional: true
+  belongs_to :comp_category, optional: true
 end

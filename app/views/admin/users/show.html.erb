@@ -25,10 +25,6 @@
           <td><%= @user.skin_type %></td>
         </tr>
         <tr>
-          <td>お気に入り商品一覧</td>
-          <td><%#= @user.favorite.items %></td>
-        </tr>
-        <tr>
           <td>会員ステータス</td>
           <td>
             <% if @user.is_deleted == true%>
@@ -41,7 +37,6 @@
         <tr>
           <td></td>
           <td><%#= link_to "編集する", edit_admin_user_path(@customer.id), class: "btn btn-outline-success" %></td>
-          <td><%#= link_to "注文履歴一覧を見る", admin_orders_path(@customer.id), class: "btn btn-outline-primary" %></td>
         </tr>
       </table>
     </div>
