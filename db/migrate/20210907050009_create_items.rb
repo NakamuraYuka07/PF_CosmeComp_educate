@@ -10,6 +10,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.boolean :status, default: false, null: false
 
 
+
       t.timestamps
     end
   end

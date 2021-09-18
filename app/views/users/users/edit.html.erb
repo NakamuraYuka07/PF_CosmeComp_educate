@@ -7,8 +7,8 @@
     <div class="col-8">
       <table class="table table-borderless">
         <tr>
-          <td><%= f.label:プロフィールし画像 %></td>
-          <td><%#= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %></td>
+          <td><%= f.label:プロフィール画像 %></td>
+          <td><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %></td>
         </tr>
         <tr>
           <td><%= f.label:会員ID , class: "float-left" %></td>
@@ -20,12 +20,12 @@
         </tr>
         <tr>
           <td><%= f.label:お誕生日, class: "float-left" %></td>
-          <td><%= f.text_field :birth_month, class:"form-control" %></td>
-          <td><%= f.text_field :birth_day, class:"form-control" %></td>
+          <td><%= select :user, :birth_month, User.birth_months.keys.to_a, include_blank: true %></td>
+          <td><%= select :user, :birth_day, User.birth_days.keys.to_a, include_blank: true %></td>
         </tr>
         <tr>
           <td><%= f.label :年代, class: "float-left" %></td>
-          <td><%= f.text_field :age, class:"form-control" %></td>
+          <td><%= select :user, :age, User.ages.keys.to_a, include_blank: true %></td>
         </tr>
         <tr>
           <td><%= f.label :肌質 , class: "float-left" %></td>

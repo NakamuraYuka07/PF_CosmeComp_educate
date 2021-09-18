@@ -1,10 +1,11 @@
 class Users::CommentsController < ApplicationController
   def create
-    item = Item.find(params[:post_image_id])
-    comment = current_user.comments.new(comment_params)
+    @item = Item.find(params[:item_id])
+    comment = current_user.comment.new(comment_params)
     comment.item = item.id
     comment.save
-    redirect_to user_item_path(item)  end
+    redirect_to user_item_path(item)  
+  end
 
   def destroy
     Comment.find_by(id: params[:id]).destroy

@@ -2,7 +2,7 @@
   <div class="row mt-5 mb-5">
     <div class="col-2 col-md-2">
       <!-- 利用者情報サイドバー  -->
-      <%= render 'info', user: current_user %>
+      <%= render 'users/users/info', user: current_user %>
       <!-- ジャンル検索サイドバー  -->
       <%= render 'users/items/category', categories: @categories %>
     </div>
@@ -19,16 +19,15 @@
         <p><%= @item.component %></p>
       </div>
       <div>
-        <% @item.comments.each do |item_comment| %>
-          <p><%#= image_tag('sample-author1.jpg') %></p>
-          <%= item_comment.user.nickname %>
-          <%= item_comment.created_at.strftime('/%m/%d') %><%= item_comment.comment %>
-        <% end %>
-        <% if comment.user == current_user %>
+        <%# @item.comments.each do |comment| %>
+          <%#= comment.user.nickname %>
+          <%#= comment.created_at.strftime('/%m/%d') %><%#= comment.comment %>
+        <%# end %>
+        <%# if item_comment.user == current_user %>
         <div>
-          <%= link_to "削除",item_comment_path(comment.item, comment), method: :delete %>
+          <%#= link_to "削除", item_comment_path(comment.item, comment), method: :delete %>
         </div>
-        <% end %>
+        <%# end %>
       </div>
       <div>
         <%= form_with(model:[@item, @comment], local: true) do |f| %>
