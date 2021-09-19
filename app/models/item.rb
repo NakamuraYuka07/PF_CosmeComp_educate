@@ -11,5 +11,20 @@ class Item < ApplicationRecord
   validates :explanation, presence: true
   validates :component, presence: true
   #validates :item_category_id, presence: true
+  
+  def self.search(search,word)
+    if search == "forward_match"
+      @item = Item.where("name LIKE?","#{word}%")
+    elsif search == "backward_match"
+  　   @item = Item.where("name LIKE?","%#{word}")
+　　elsif search == "perfect_match"
+  　　@item = Item.where("#{word}")
+　　elsif search == "partial_match"
+　　　@item = Item.where("name LIKE?","%#{word}%")
+　　else
+  　　@item = Item.all
+    end
+  end
+
 
 end

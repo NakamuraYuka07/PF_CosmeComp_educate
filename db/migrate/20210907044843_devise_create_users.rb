@@ -40,7 +40,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.integer :skin_type, default: 0
       t.integer :favorite_item
       t.integer :favorite_id
-      t.integer :comment_id
       t.boolean :is_deleted, default: false
 
 

@@ -85,7 +85,6 @@ ActiveRecord::Schema.define(version: 2021_09_07_050848) do
     t.integer "skin_type", default: 0
     t.integer "favorite_item"
     t.integer "favorite_id"
-    t.integer "comment_id"
     t.boolean "is_deleted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

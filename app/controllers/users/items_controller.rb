@@ -10,5 +10,4 @@ class Users::ItemsController < ApplicationController
     @comment = Comment.new
   end
   
-  
 end

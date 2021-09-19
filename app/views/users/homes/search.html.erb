@@ -1,0 +1,42 @@
+<h2>検索結果</h2>
+<!--items一覧 -->
+<table class="table table-hover table-inverse">
+  <% if @range == '1' %>
+  <thead>
+    <tr>
+     <th>商品写真</th>
+     <th>名前</th>
+     <th>カテゴリー名</th>
+     <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @item.each do |item| %>
+    <tr>
+      <td><%= attachment_image_tag(item.item_image, :profile_image, :fill, 50, 50, fallback: "no-image-mini.jpg") %></td>
+      <td><%= link_to item.name, item, class: "item_#{item.id}" %> </td>
+      <td><%= item.item_category.name %></td>
+      <td><%= item.explanation %></td>
+    </tr>
+    <% end %>
+  </tbody>
+  
+  <% else %>
+  <thead>
+     <tr>
+      <th>成分名</th>
+      <th>成分カテゴリー</th>
+      <th>説明</th>
+     </tr>
+   </thead>
+   <tbody>
+    <% @component.each do |component| %>
+     <tr>
+      <td><%= link_to component.name, component, class: "component_#{component.id}" %> </td>
+      <td><%= component.comp_category.name %></td>
+      <td><%= component.explanation %></td>
+     </tr>
+    <% end %>
+   </tbody>
+   <% end %>
+ </table>
