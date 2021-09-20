@@ -25,8 +25,8 @@
           <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
           <% if comment.user == current_user %>
         　　<div>
-        　     <!--<%= link_to "削除", item_comment_path(comment.item, comment), method: :delete %>-->
-      　　　　  </div>
+    　         <%= link_to "削除", item_comment_path(comment.item, comment), method: :delete %>  　　　　 
+    　       </div>
        　  <% end %>
         <% end %>
         </div>

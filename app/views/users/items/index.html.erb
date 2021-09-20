@@ -1,28 +1,49 @@
 <div class="container-fluid">
   <div class="row mt-5">
-    <div class="col-md-2 ml-5">
+    <div class="col-md-2 ml-3">
       <!-- 利用者情報サイドバー  -->
-      <%= render 'users/users/info', user: current_user %>
+      <%= render 'users/users/info', user: current_user, class: "mb-5"%>
       <!-- ジャンル検索サイドバー  -->
       <%= render 'users/items/category', categories: @categories %>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-6 ml-5 mr-4">
       <h3 class="p-3 mb-2 w-50 text-center" style="color: #bc8f8f; background: #8f6552; border-left: solid 5px #6c3524; border-bottom: solid 3px #7b5544;"><strong>商品一覧</strong>（全<%= @items.count %>件）</h3>
-      <% @items.each do |item| %>
-        <div class="item-box">
-          <table class="table table-borderless">
-            <tr>
-              <th>
-                <%= link_to item_path(item) do %>
-                  <%= attachment_image_tag item, :item_image, :fill, 210, 150, fallback: "no_image.jpg" %>
-                <% end %>
-              </th>
-            </tr>
-            <tr>
-              <th><%= link_to item.name.truncate(15), item_path(item), class:"text-secondary" %></th>
-            </tr>
-          </table>
-        </div>
+      <table class="table table-hover mt-4">
+      <thead>
+        <tr class="thead" style="background-color: #bed3ca;">
+          <th>商品画像</th>
+          <th>商品名</th>
+          <th>商品カテゴリー</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
+          <tr>
+            <td><%= attachment_image_tag item, :item_image , format: 'jpg', fallback: "no_image.jpg", size: "50x50" %></td>
+            <td><%= link_to item.name.truncate(15), item_path(item), class:"text-secondary" %></td>
+            <td><%= item.item_category.name %></td>
+            <td><%= item.status %></td>
+            <td>
+              <% if item.status? %>
+                <p class="text-success">販売</p>
+              <% else %>
+                <p class="text-secondary">廃盤</p>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+    <div class="col-md-3 mt-5">
+      <h2>ランキング</h2>
+      <table class= "table table-hover">
+      <% @rank_items.each do |item| %>
+      <tr>
+        <th><%= attachment_image_tag item, :item_image , format: 'jpg', fallback: "no_image.jpg", size: "50x50" %><th>
+        <th><%= link_to item.name.truncate(15), item_path(item), class:"text-secondary" %></th>
+      </tr>
       <% end %>
     </div>
     <div class="col-6 offset-3 text-center text-dark" ><%#= paginate @items %></div>

@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   scope module: :users do
     root to: 'homes#top'
     get 'search' => 'homes#search'
-    resources :users, only: [:show, :edit, :update]
+    resources :users, only: [:show, :edit, :update]do
+      get :favorites, on: :collection
+    end
     get '/users/check' => "users#check", as: 'users_check'
     put "/users/hide" => "users#hide", as: 'users_hide'
     get 'item_categories/index'

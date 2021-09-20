@@ -3,6 +3,9 @@ class Users::UsersController < ApplicationController
 
   def show
     @user = current_user
+    
+    favorites = Favorite.where(user_id: current_user.id).pluck(:item_id)  # ログイン中のユーザーのお気に入りのitem_idカラムを取得
+    @favorite_list = Item.find(favorites)     # itemsテーブルから、お気に入り登録済みのレコードを取得
   end
 
   def edit

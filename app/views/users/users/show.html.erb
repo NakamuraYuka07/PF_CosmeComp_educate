@@ -5,10 +5,11 @@
   </div>
   <div class="row my-3">
     <h4 class="mx-2 col-3"><strong>登録情報</strong></h4>
-    <%= link_to "編集する", edit_user_path(current_user), method: :get, class: "col-2 btn btn-outline-success mx-2" %>
+    <%= link_to "編集する", edit_user_path(current_user), method: :get, class: "col-1 btn btn-outline-success mx-2" %>
+    <h4 class="mx-2 col-3"><strong>お気に入り商品</strong></h4>
   </div>
   <div class="row my-2">
-    <table class="table table-bordered table-hover col-6">
+    <table class="table table-bordered table-hover col-5">
       <tr>
         <td>会員ID</td>
         <td><%= @user.id %></td>
@@ -30,10 +31,6 @@
           <td><%= @user.skin_type %></td>
         </tr>
         <tr>
-          <td>お気に入り商品一覧</td>
-          <td><%#= @user.favorite.items %></td>
-        </tr>
-        <tr>
           <td>会員ステータス</td>
           <td>
             <% if @user.is_deleted == true%>
@@ -44,4 +41,36 @@
           </td>
         </tr>
     </table>
+    <div class= col-md-7 offset-col-1>
+      <table class="table table-hover">
+      <thead>
+        <tr class="thead" style="background-color: #bed3ca;">
+          <th>商品ID</th>
+          <th>商品名</th>
+          <th>商品カテゴリー</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @favorite_list.present? %>
+          <% @favorite_list.each do |item| %>
+          <tr>
+            <td><%= attachment_image_tag item, :item_image , format: 'jpg', fallback: "no_image.jpg", size: "50x50" %></td>
+            <td><%= link_to item.name,admin_item_path(item), class:"text-secondary" %></td>
+            <td><%= item.item_category.name %></td>
+            <td><%= item.status %></td>
+            <td>
+              <% if item.status? %>
+                <p class="text-success">販売</p>
+              <% else %>
+                <p class="text-secondary">廃盤</p>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
   </div>
+</div>
