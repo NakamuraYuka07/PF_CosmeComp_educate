@@ -3,13 +3,11 @@ class Users::CommentsController < ApplicationController
     @item = Item.find(params[:item_id])
     @comment = current_user.comments.new(comment_params)
     @comment.item_id = @item.id
-    @comment.save
-    redirect_to item_path(@item)
+    @comment.save!
   end
     
   def destroy
     Comment.find_by(id: params[:id]).destroy
-    redirect_to item_path(params[:item_id])
   end
   
   private

@@ -14,25 +14,18 @@
       <!-- 商品詳細 -->
       <div class="item-detail">
         <h3><strong><%= @item.name %></strong></h3>
-        <p><%= render 'users/favorites/favorite-btn', item: @item %>コメント件数：<%= @item.comments.count %></p>
+        <p id ="favorite-btn"><%= render 'users/favorites/favorite-btn', item: @item %>コメント件数：<%= @item.comments.count %></p>
         <p><%= @item.explanation %></p>
         <p><%= @item.component %></p>
       </div>
 
-      <div>
-        <% @item.comments.each do |comment| %>
-          <%= comment.user.nickname %>
-          <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
-          <% if comment.user == current_user %>
-        　　<div>
-    　         <%= link_to "削除", item_comment_path(comment.item, comment), method: :delete %>  　　　　 
-    　       </div>
-       　  <% end %>
-        <% end %>
-        </div>
+      <!--非同期通信テンプレート-->
+      <div id= "comments">
+        <%= render 'users/comments/new', item: @item %>
+      </div>
 
       <div>
-        <%= form_with(model:[@item, @comment], local: true) do |f| %>
+        <%= form_with model:[@item, @comment], data: {remote: true} do |f| %>
           <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
           <%= f.submit "送信する" %>
         <% end %>

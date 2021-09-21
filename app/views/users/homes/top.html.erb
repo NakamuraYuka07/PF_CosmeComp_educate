@@ -4,10 +4,21 @@
     <!-- 利用者情報サイドバー  -->
       <%= render 'users/users/info', user: current_user %>
     </div>
-    <div class="col-md-9 ml-5 pt-5">
+    <div class="col-md-6 ml-5 pt-5">
       <%= form_with url:search_path, method: :get, local: true do |f| %>
         <input id="page_name" name='keyword' size="30" type="text" />
       <% end %>
+      </div>
+      <div class="col-md-3 mt-5">
+        <h2>新着商品</h2>
+        <table class= "table table-hover">
+          <% @items.each do |item| %>
+          <tr>
+            <th><%= attachment_image_tag item, :item_image , format: 'jpg', fallback: "no_image.jpg", size: "50x50" %><th>
+            <th><%= link_to item.name.truncate(15), item_path(item), class:"text-secondary" %></th>
+          </tr>
+          <% end %>
+        </table>
       </div>
     </div>
   </div>
