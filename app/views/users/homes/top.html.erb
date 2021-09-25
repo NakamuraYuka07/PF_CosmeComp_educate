@@ -1,16 +1,41 @@
 <div class="container-fluid">
+<!-- 利用者がログインしている時 -->
+ <% if user_signed_in? %>
   <div class="row mt-5">
     <div class="col-md-2 ml-5">
     <!-- 利用者情報サイドバー  -->
       <%= render 'users/users/info', user: current_user %>
     </div>
-    <div class="col-md-6 ml-5 pt-5">
+    <div class="col-md-5 ml-5 pt-5">
+      <div></div>
+      <div>
+      <h3>サイト内検索</h3>
       <%= form_with url:search_path, method: :get, local: true do |f| %>
         <input id="page_name" name='keyword' size="30" type="text" />
       <% end %>
       </div>
-      <div class="col-md-3 mt-5">
-        <h2>新着商品</h2>
+      <div class ="mt-3">
+      <h3>化粧品表示名称検索</h3>
+      <script async src="https://www.cosmetic-info.jp/api/jclnjs.php?ux=000000000000"></script><div id="cosmeticinfojpjclnsearch"></div>
+    </div>
+    <div class ="mt-3">
+      <h3>医薬部外品添加物検索</h3>
+      <script async src="https://www.cosmetic-info.jp/api/jsqijs.php?ux=000000000000"></script><div id="cosmeticinfojpjsqisearch"></div>
+    </div>
+    <div class ="mt-3">
+      <h3>原料検索</h3>
+      <script async src="https://www.cosmetic-info.jp/api/matejs.php?ux=000000000000"></script><div id="cosmeticinfojpmatesearch"></div>
+    </div>
+    <div>
+      <small>
+        本情報は化粧品技術者を対象に作成した専門的なものであり、<br>
+        一般の方が理解できるように配慮したものではないことに十分ご留意下さい。<br>
+        本情報の内容については万全を期しておりますが、その内容を保証するものではありません。<br>
+      </small>
+    </div>
+    </div>
+      <div class="col-md-3 mt-5 mr-5">
+        <h2 class="text-center" style="background-color: #bed3ca;">新着商品</h2>
         <table class= "table table-hover">
           <% @items.each do |item| %>
           <tr>
@@ -22,4 +47,22 @@
       </div>
     </div>
   </div>
+  <% else %>
+  <div class="row mt-5">
+    <div class="col-md-6 offset-3 pt-5 text-center">
+      <p>
+        <h4>こちらは化粧品検索サイトCosmeComponentです。</h4><br>
+        初めてご利用の方は新規登録をお願いいたします。<br>
+        すでに登録済みの方はログインしてください。
+      </p>
+      <div>
+        <%= link_to "Sign up" ,new_user_registration_path, class: "col-md-5 btn btn-outline-success text-center" %>
+      </div>
+      <div>
+        <%= link_to "Log in" ,new_user_session_path, class: "col-md-5 mt-2 btn btn-outline-primary text-center" %>
+      </div>
+      </div>
+    </div>  
+  </div>
+  <% end %>
 </div>

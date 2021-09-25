@@ -1,9 +1,31 @@
+<div class="mb-5">
+  <div class="mt-4 mb-2">
+コメント件数：<%= item.comments.count %>
+</div>
 <% item.comments.each do |comment| %>
-  <%= comment.user.nickname %>
-  <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
-  <% if comment.user == current_user %>
-　　<div>
-　　  <%= link_to "削除", item_comment_path(comment.item, comment), method: :delete, remote: true %>  　　　　 
-　  </div>
-　<% end %>
+  <div class="card  mb-3">
+  <div class="card-header" style="height: 45px;">
+    <ul class="nav nav-pills card-header-pills">
+      <li class="nav-item">
+      <li class="nav-item  m-0 ml-2">
+        <a><%= comment.user.nickname %></a>
+      </li>
+      <li class="nav-item ml-5">
+        <small><%= comment.created_at.strftime('%Y/%m/%d') %></small>
+      </li>
+      <li class="nav-item ml-2">
+        <a>
+          <% if comment.user == current_user %>
+          <%= link_to "", item_comment_path(comment.item, comment), method: :delete, remote: true, class:"fas fa-trash-alt text-secondary" %>
+          <% end %>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%= comment.comment %></p>
+  </div>
+</div>
 <% end %>
+</div>
+

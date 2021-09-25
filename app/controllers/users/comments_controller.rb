@@ -3,13 +3,14 @@ class Users::CommentsController < ApplicationController
     @item = Item.find(params[:item_id])
     @comment = current_user.comments.new(comment_params)
     @comment.item_id = @item.id
-    @comment.save!
+    @comment.save
   end
-    
+
   def destroy
+    @item = Item.find(params[:item_id])
     Comment.find_by(id: params[:id]).destroy
   end
-  
+
   private
 
   def comment_params

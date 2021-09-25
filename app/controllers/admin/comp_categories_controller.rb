@@ -8,8 +8,8 @@ class Admin::CompCategoriesController < ApplicationController
 
   def create
     @comp_category = CompCategory.new(comp_category_params)
-    if @comp_category.save!
-      redirect_back(fallback_location: root_path)
+    if @comp_category.save
+      redirect_to admin_components_path
     else
       @comp_categories = CompCategory.all
       render :index
@@ -25,6 +25,7 @@ class Admin::CompCategoriesController < ApplicationController
     if @comp_category.update(comp_category_params)
       redirect_to admin_comp_categories_path
     else
+      @comp_category = CompCategory.find(params[:id])
       render :edit
     end
   end

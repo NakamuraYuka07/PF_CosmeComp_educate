@@ -1,6 +1,6 @@
 class Users::ComponentsController < ApplicationController
   def index
-    @components = Component.all
+    @components = Component.page(params[:page]).per(10)
     @categories = CompCategory.all
   end
   

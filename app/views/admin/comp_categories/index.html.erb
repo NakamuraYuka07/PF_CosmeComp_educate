@@ -6,6 +6,7 @@
   <div class="row">
     <div class="col-10 my-3">
       <%= form_with model: @comp_category, url: admin_comp_categories_path, local: true do |f| %>
+        <%= render "layouts/error", model: f.object %>
         <%= f.label :成分カテゴリー名 %>
         <%= f.text_field :name, placeholder: "成分カテゴリー名", class: "mx-4" %>
         <%= f.submit "新規登録", class: "btn btn-outline-success col-2" %>

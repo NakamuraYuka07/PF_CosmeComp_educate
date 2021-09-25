@@ -3,6 +3,7 @@
     <div class='col-md-8 mt-4'>
     <h4 class="p-3 mb-2 w-50 text-center" style="color: #494949; background: #80aba9; border-left: solid 5px #2f4f4f;"><%= @user.nickname %>さんの会員情報編集</h4>
       <%= form_with model: @user, url: admin_user_path, local: true do |f| %>
+      <%= render "layouts/error", model: f.object %>
       <table class="table  table-borderless">
         <tr>
           <td><%= f.label:会員ID , class: "float-left" %></td>
@@ -14,20 +15,22 @@
         </tr>
         <tr>
           <td><%= f.label:お誕生日, class: "float-left" %></td>
-          <td><%= select :user, :birth_month, User.birth_months.keys.to_a, include_blank: true, class:"form-control" %></td>
-          <td><%= select :user, :birth_day, User.birth_days.keys.to_a, include_blank: true %></td>
+          <td class="flex mr-2">
+            <%= select :user, :birth_month, User.birth_months.keys.to_a, {include_blank: true}, class:"form-control" %>
+            <%= select :user, :birth_day, User.birth_days.keys.to_a, {include_blank: true}, class:"form-control" %>
+          </td>
         </tr>
         <tr>
           <td><%= f.label :年齢, class: "float-left" %></td>
-          <td><%= select :user, :age, User.ages.keys.to_a, include_blank: true %></td>
+          <td><%= select :user, :age, User.ages.keys.to_a, {include_blank: true}, class:"form-control" %></td>
         </tr>
         <tr>
           <td><%= f.label :肌質 , class: "float-left" %></td>
-          <td><%= select :user, :skin_type, User.skin_types.keys.to_a, include_blank: true %></td>
+          <td><%= select :user, :skin_type, User.skin_types.keys.to_a, {include_blank: true}, class:"form-control" %></td>
         </tr>
         <tr>
           <td><%= f.label :"会員ステータス", class: "float-left" %></td>
-          <td> 
+          <td>
             <%= f.radio_button :is_deleted, false %><span class='mr-3'> 有効 </span>
             <%= f.radio_button :is_deleted, true %><span> 退会 </span>
           </td>

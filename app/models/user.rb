@@ -6,9 +6,15 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorited_items, through: :favorites, source: :item
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  validates :email, presence: true
+  validates :nickname, presence: true
+  validates :birth_month, presence: true
+  validates :birth_day, presence: true
+  validates :age, presence: true
+  validates :skin_type, presence: true
   enum birth_month:
   { １月: 0, ２月: 1, ３月: 2, ４月: 3, ５月: 4, ６月: 5, ７月: 6, ８月: 7, ９月: 8, １０月: 9, １１月: 10, １２月: 11 }
 
@@ -20,4 +26,8 @@ class User < ApplicationRecord
 
   enum skin_type:
   { 普通肌: 0, 乾燥肌: 1, 脂性肌: 2, 混合肌: 3 }
+  
+  def active_for_authentication?
+    super && (self.is_deleted == false)
+  end
 end

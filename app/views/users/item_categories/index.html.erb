@@ -1,28 +1,40 @@
 <div class="container-fluid">
   <div class="row mt-5">
-    <h3 class="p-3 mb-2 w-50 text-center" style="color: #bc8f8f; background: #8f6552; border-left: solid 5px #6c3524; border-bottom: solid 3px #7b5544;"><strong>商品一覧</strong>（全<%= @all_items.count %>件）</h3>
-    <div class="col-2 col-md-2">
+    <div class="col-2 col-md-2 ml-5">
       <!-- ジャンル検索サイドバー  -->
       <%= render 'users/users/info', user: current_user %>
+      <div class="mt-3">
       <%= render 'users/items/category', categories: @categories %>
+      </div>
     </div>
-    <div class="col-9 col-md-9">
-      <% @items.each do |item| %>
-        <div class="item-box">
-          <table class="table table-borderless">
-            <tr>
-              <th>
-                <%= link_to item_path(item) do %>
-                  <%= attachment_image_tag item, :item_image, :fill, 210, 150, fallback: "no_image.jpg" %>
-                <% end %>
-              </th>
-            </tr>
-            <tr>
-              <th><%= link_to item.name.truncate(15), item_path(item), class:"text-secondary" %></th>
-            </tr>
-          </table>
-        </div>
-      <% end %>
+    <div class="col-md-8 ">
+       <h3 class="p-3 mb-2 w-50 text-center" style="color: #bc8f8f; background: #8f6552; border-left: solid 5px #6c3524; border-bottom: solid 3px #7b5544;"><strong>商品一覧</strong>（全<%= @all_items.count %>件）</h3>
+       <table class="table table-hover mt-4">
+      <thead>
+        <tr class="thead" style="background-color: #bed3ca;">
+          <th>商品画像</th>
+          <th>商品名</th>
+          <th>商品カテゴリー</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
+          <tr>
+            <td><%= attachment_image_tag item, :item_image , format: 'jpg', fallback: "no_image.jpg", size: "50x50" %></td>
+            <td><%= link_to item.name.truncate(15), item_path(item), class:"text-secondary" %></td>
+            <td><%= item.item_category.name %></td>
+            <td>
+              <% if item.status == true %>
+                <p class="text-success">販売</p>
+              <% else %>
+                <p class="text-secondary">廃盤</p>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
     </div>
     <div class="col-6 offset-3 text-center text-dark" ><%= paginate @items %></div>
   </div>

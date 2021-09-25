@@ -4,11 +4,12 @@
     <h2 class="mx-5 col-4 text-center" style="background-color:#a99e93;">利用者情報編集</h2>
   </div>
   <%= form_with model: @user, url: user_path, local: true do |f| %>
+  <%= render "layouts/error", model: f.object %>
     <div class="col-8">
       <table class="table table-borderless">
         <tr>
           <td><%= f.label:プロフィール画像 %></td>
-          <td><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %></td>
+          <td><%= f.attachment_field :profile_image, class: "form-control-file user_image" %></td>
         </tr>
         <tr>
           <td><%= f.label:会員ID , class: "float-left" %></td>
@@ -20,21 +21,23 @@
         </tr>
         <tr>
           <td><%= f.label:お誕生日, class: "float-left" %></td>
-          <td><%= select :user, :birth_month, User.birth_months.keys.to_a, include_blank: true %></td>
-          <td><%= select :user, :birth_day, User.birth_days.keys.to_a, include_blank: true %></td>
+          <td class="d-flex">
+            <%= select :user, :birth_month, User.birth_months.keys.to_a, {include_blank: true}, class:"form-control mr-2", style:"width: 100px;" %>
+            <%= select :user, :birth_day, User.birth_days.keys.to_a, {include_blank: true}, class:"form-control", style:"width: 100px;" %>
+          </td>
         </tr>
         <tr>
           <td><%= f.label :年代, class: "float-left" %></td>
-          <td><%= select :user, :age, User.ages.keys.to_a, include_blank: true %></td>
+          <td><%= select :user, :age, User.ages.keys.to_a, {include_blank: true}, class:"form-control", style:"width: 150px;" %></td>
         </tr>
         <tr>
           <td><%= f.label :肌質 , class: "float-left" %></td>
-          <td><%= select :user, :skin_type, User.skin_types.keys.to_a, include_blank: true, class:"form-control" %></td>
+          <td><%= select :user, :skin_type, User.skin_types.keys.to_a, {include_blank: true}, class:"form-control", style:"width: 150px;" %></td>
         </tr>
     </table>
     <div class="mb-5 text-center">
       <%= f.submit "編集内容を保存", class:"btn btn-outline-success mx-3 col-4" %>
-      <%= link_to "退会する", users_check_path, class:"btn btn-outline-danger mx-3 col-3" %>
+      <%= link_to "退会する", users_check_path(current_user), class:"btn btn-outline-danger mx-3 col-3" %>
     </div>
     <% end %>
   </div>

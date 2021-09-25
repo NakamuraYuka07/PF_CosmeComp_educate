@@ -9,7 +9,7 @@ class Users::CompCategoriesController < ApplicationController
   def search
     @comp_category = CompCategory.find(params[:id])
     @all_components = Component.where(status: true, comp_category_id: @comp_category.id)
-    @components = @all_components.page(params[:page]).per(20).reverse_order
+    @components = @all_components.page(params[:page]).per(10).reverse_order
     @categories = CompCategory.all
     # renderでそのままindexにとばす
     render :index

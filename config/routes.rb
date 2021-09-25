@@ -10,15 +10,15 @@ Rails.application.routes.draw do
     registrations: 'admins/registrations'
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  
+
   scope module: :users do
     root to: 'homes#top'
     get 'search' => 'homes#search'
     resources :users, only: [:show, :edit, :update]do
       get :favorites, on: :collection
     end
-    get '/users/check' => "users#check", as: 'users_check'
-    put "/users/hide" => "users#hide", as: 'users_hide'
+    get '/users/:id/check/' => "users#check", as: 'users_check'
+    put "/users/:id/hide" => "users#hide", as: 'users_hide'
     get 'item_categories/index'
     get 'item_categories/:id/item_search', to: 'item_categories#search', as: 'item_search'
     resources :components, only: [:show, :index]
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     end
 
   end
-  
+
   namespace :admin do
     root to: 'homes#top'
     resources :items, only: [:new, :create, :index, :show, :edit, :update]

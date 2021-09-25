@@ -2,13 +2,14 @@
   <div class="row mt-4 mb-3">
    <div class="d-flex justify-content-between w-100">
      <h4 class="p-3 mb-2 text-dark w-25 text-center" style="color: #494949; background: #80aba9; border-left: solid 5px #2f4f4f;">成分一覧</h4>
-     <h1>
-       <%= link_to new_admin_item_path, class: "text-right" do %>
-        <i class="fas fa-plus-circle text-info"></i>
-       <%end%>
-     </h1>
+
+     <h5 class ="flex-box">
+       <%= link_to "成分カテゴリーを追加する" ,admin_comp_categories_path, class: "btn btn-outline-success text-center" %>
+       <%= link_to "成分を追加する" ,new_admin_component_path, class: "btn btn-outline-success" %>
+     </h5>
    </div>
-    <table class="table table-hover mt-4">
+   <div class="col-md-12 mb-5">
+    <table class="table table-hover mt-4 mb-5">
       <thead>
         <tr class="thead" style="background-color: #bed3ca;">
           <th>成分ID</th>
@@ -34,7 +35,7 @@
         <% end %>
       </tbody>
     </table>
-    <%= link_to "成分を追加する" ,new_admin_component_path %>
-    <%= link_to "成分カテゴリーを追加する" ,admin_comp_categories_path %>
+    </div>
+      <div class="mb-5"><%= paginate @components %></div>
   </div>
 </div>

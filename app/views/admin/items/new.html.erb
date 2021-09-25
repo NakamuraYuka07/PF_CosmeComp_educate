@@ -6,6 +6,7 @@
        <div class="row">
         <div class="col-md-6">
         <%= form_with model:@item,url:admin_items_path, local:true do |f| %>
+        <%= render "layouts/error", model: f.object %>
         <table class='table table-borderless'>
           <tr>
            <td><%= f.label :商品画像 ,class: "col-xs-3" %></td>
@@ -13,12 +14,25 @@
           </tr>
           <tr>
            <td><%= f.label :商品カテゴリー ,class: "col-xs-3 fix" %></td>
-           <td><%#= f.collection_select(:item_category_id, @item_category, :id, :name,:prompt => "--選択してください--") %></td>
-           <td><%= f.collection_select(:item_category_id, ItemCategory.all, :id, :name,:prompt => "--選択してください--") %></td>
+           <td><%= f.collection_select :item_category_id, ItemCategory.all, :id, :name,{prompt: "--選択してください--"}, class:"form-control" %></td>
           </tr>
           <tr>
            <td><%= f.label :商品名 ,class: "col-xs-3" %></td>
            <td><%= f.text_field :name, autofocus: true, autocomplete: "name" , placeholder: "商品名", class: "col-auto form-control form-control-md w-100" %></td>
+          </tr>
+          <tr>
+           <td><%= f.label :評価 ,class: "col-xs-3" %></td>
+           <td><div id="star"><%= f.hidden_field :rate, :value => 'score' %></div></td>
+             <script>
+               $('#star').raty({
+                 size     : 36,
+                 starOff:  '<%= asset_path('star-off.png') %>',
+                 starOn : '<%= asset_path('star-on.png') %>',
+                 starHalf: '<%= asset_path('star-half.png') %>',
+                 scoreName: 'item[rate]',
+                 half: true,
+               });
+             </script>
           </tr>
           <tr>
            <td><%= f.label :商品説明 ,class: "col-xs-3" %></td>
@@ -26,7 +40,7 @@
           </tr>
           <tr>
            <td><%= f.label :成分 ,class: "col-xs-3 block"  %></td>
-           <td><%= f.text_area :component, autofocus: true, autocomplete: "component" , placeholder: "1000", class: "col-auto form-control form-control-md w-50" %></td>
+           <td><%= f.text_area :component, size: "30x5", autofocus: true, autocomplete: "component" , placeholder: "ここに成分を記述します", class: "col-auto form-control form-control-md w-100" %></td>
           </tr>
           <tr>
            <td><%= f.label :販売ステータス  ,class: "col-xs-3 fix" %></td>
@@ -37,7 +51,7 @@
           </tr>
           <tr>
            <td></td>
-           <td><%= f.submit "新規登録", class: "btn btn-outline-success" %></td>
+           <td><%= f.submit "新規登録", class: "mb-5 btn btn-outline-success" %></td>
           </tr>
         </table>
         <% end %>

@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 2021_09_07_050848) do
     t.text "explanation", null: false
     t.text "component", null: false
     t.boolean "status", default: false, null: false
+    t.float "rate", default: 0.0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

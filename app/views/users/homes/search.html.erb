@@ -1,11 +1,13 @@
-<div class= container>
-  <div class= row>
-    <div class= col-md-2>
+<div class= "container-fluid">
+  <div class= "row">
+    <div class= "col-md-2 ml-5 mt-5">
       <!-- 利用者情報サイドバー  -->
       <%= render 'users/users/info', user: current_user %>
     </div>
-    <div class= col-md-10>
+    <div class= "col-md-7 ml-5">
+       <h3 class="mt-5">検索結果</h3>
       <!--items一覧 -->
+      <% if @items.present? %> 
      <table class="table table-hover table-inverse">
        <thead>
          <tr>
@@ -21,9 +23,8 @@
            <td><%= attachment_image_tag item, :item_image , format: 'jpg', fallback: "no_image.jpg", size: "50x50" %></td>
            <td><%= link_to item.name,item_path(item), class:"text-secondary" %></td>
            <td><%= item.item_category.name %></td>
-           <td><%= item.status %></td>
            <td>
-             <% if item.status? %>
+             <% if item.status == true %>
                <p class="text-success">販売</p>
              <% else %>
                <p class="text-secondary">廃盤</p>
@@ -33,6 +34,7 @@
          <% end %>
        </tbody>
      </table>
+    <% else %>
      <table class="table table-hover table-inverse">
        <thead>
           <tr>
@@ -51,6 +53,7 @@
          <% end %>
         </tbody>
       </table>
+      <% end %>
     </div>
   </div>
 </div>

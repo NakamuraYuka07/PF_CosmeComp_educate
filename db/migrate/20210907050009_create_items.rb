@@ -8,6 +8,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.text :explanation, null: false
       t.text :component, null: false
       t.boolean :status, default: false, null: false
+      t.float :rate, null: false, default: 0
 
 
 
