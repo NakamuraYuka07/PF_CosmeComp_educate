@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-    before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   def index
     @users = User.page(params[:page]).per(10)
@@ -19,11 +19,12 @@ class Admin::UsersController < ApplicationController
       redirect_to admin_user_path(@user)
     else
       @user = User.find(params[:id])
-      render:edit
+      render :edit
     end
   end
 
   protected
+
   def user_params
     params.require(:user).permit(:nickname, :birth_year, :birth_month, :birth_day, :age, :skin_type, :is_deleted)
   end

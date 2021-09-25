@@ -13,7 +13,5 @@ class Users::CompCategoriesController < ApplicationController
     @categories = CompCategory.all
     # renderでそのままindexにとばす
     render :index
-    
   end
-
 end

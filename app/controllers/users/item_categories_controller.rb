@@ -13,7 +13,5 @@ class Users::ItemCategoriesController < ApplicationController
     @categories = ItemCategory.all
     # renderでそのままindexにとばす
     render :index
-    
   end
-
 end

@@ -1,9 +1,8 @@
 class Admin::ComponentsController < ApplicationController
-   before_action :authenticate_admin!
+  before_action :authenticate_admin!
 
   def index
     @components = Component.page(params[:page]).per(10)
-
   end
 
   def show
@@ -21,7 +20,7 @@ class Admin::ComponentsController < ApplicationController
       redirect_to admin_components_path
     else
     @comp_categories = CompCategory.all
-    render:new
+      render :new
     end
   end
 
@@ -38,13 +37,13 @@ class Admin::ComponentsController < ApplicationController
     else
       @component = Component.find(params[:id])
       @comp_category = CompCategory.all
-      render:edit
+      render :edit
     end
   end
 
   private
+  
   def component_params
     params.require(:component).permit(:name, :explanation, :status, :comp_category_id)
   end
-
 end

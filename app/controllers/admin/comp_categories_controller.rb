@@ -1,5 +1,5 @@
 class Admin::CompCategoriesController < ApplicationController
-    before_action :authenticate_admin!
+  before_action :authenticate_admin!
 
   def index
     @comp_category = CompCategory.new

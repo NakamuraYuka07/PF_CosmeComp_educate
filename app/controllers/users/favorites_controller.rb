@@ -10,5 +10,4 @@ class Users::FavoritesController < ApplicationController
     favorite = current_user.favorites.find_by(item_id: @item.id)
     favorite.destroy
   end
-  
 end
