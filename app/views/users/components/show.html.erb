@@ -8,11 +8,15 @@
       <%= render 'users/components/category', categories: @categories %>
       </div>
     </div>
-    <div class="col-md-8 offset-1 mt-5">
+    <div class="col-md-8 mt-5 ml-5">
       <!-- 商品詳細 -->
-      <div class="item-detail">
-        <h3><strong><%= @component.name %></strong></h3>
-        <p class="mt-3"><%= @component.explanation %></p>
+      <div class="card">
+        <div class="card-header">
+          <h3><strong><%= @component.name %></strong></h3>
+        </div>
+        <div class="card-body">
+          <p class="mt-3"><%= @component.explanation %></p>
+        </div>
       </div>
     </div>
   </div>
