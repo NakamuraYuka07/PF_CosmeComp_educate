@@ -4,33 +4,33 @@
 <div class="container", style="margin-left: 30rem;">
   <div class="row">
     <div class="col-md-6">
-      <%= form_with model:@component,url:admin_components_path, local:true do |f| %>
-      <%= render "layouts/error", model: f.object %>
-        <table class='table table-borderless'>
-          <tr>
-            <td><%= f.label :成分カテゴリー ,class: "col-xs-3 fix" %></td>
-            <td><%= f.collection_select :comp_category_id, @comp_category, :id, :name,{prompt: "--選択してください--"}, class:"form-control" %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :成分名 ,class: "col-xs-3" %></td>
-            <td><%= f.text_field :name, autofocus: true, autocomplete: "name" , placeholder: "成分名", class: "col-auto form-control form-control-md w-100" %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :成分説明 ,class: "col-xs-3" %></td>
-            <td><%= f.text_area :explanation, size: "20x5", autofocus: true, autocomplete: "explanation" , placeholder: "ここに説明文を記述します", class: "col-auto form-control form-control-md w-100" %></td>
-          </tr>
-         <tr>
-           <td><%= f.label :使用ステータス  ,class: "col-xs-3 fix" %></td>
-           <td>
-             <%= f.radio_button :status, :true %> 現在使用可能
-             <%= f.radio_button :status, :false %> 現在使用不可
-           </td>
-         </tr>
-         <tr>
-           <td><%= f.submit "新規登録", class: "btn btn-outline-success" %></td>
-         </tr>
-       </table>
-     <% end %>
-   </div>
-  </div>
+      <%= form_with model:@component, url:admin_components_path, local:true do |f| %>
+        <%= render "layouts/error", model: f.object %>
+          <table class='table table-borderless'>
+            <tr>
+              <td><%= f.label :成分カテゴリー ,class: "col-xs-3 fix" %></td>
+              <td><%= f.collection_select :comp_category_id, @comp_category, :id, :name,{prompt: "--選択してください--"}, class:"form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :成分名 ,class: "col-xs-3" %></td>
+              <td><%= f.text_field :name, autofocus: true, autocomplete: "name" , placeholder: "成分名", class: "col-auto form-control form-control-md w-100" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :成分説明 ,class: "col-xs-3" %></td>
+              <td><%= f.text_area :explanation, size: "20x5", autofocus: true, autocomplete: "explanation" , placeholder: "ここに説明文を記述します", class: "col-auto form-control form-control-md w-100" %></td>
+            </tr>
+            <tr>
+             <td><%= f.label :使用ステータス  ,class: "col-xs-3 fix" %></td>
+             <td>
+               <%= f.radio_button :status, :true %> 現在使用可能
+               <%= f.radio_button :status, :false %> 現在使用不可
+             </td>
+            </tr>
+            <tr>
+             <td><%= f.submit "新規登録", class: "btn btn-outline-success" %></td>
+            </tr>
+          </table>
+        <% end %>
+      </div>
+    </div>
 </div>

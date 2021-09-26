@@ -19,7 +19,8 @@ class Admin::ComponentsController < ApplicationController
     if @component.save
       redirect_to admin_components_path
     else
-    @comp_categories = CompCategory.all
+    @comp_category = CompCategory.all
+    @component = Component.new
       render :new
     end
   end
