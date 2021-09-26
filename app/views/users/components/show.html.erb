@@ -8,14 +8,38 @@
       <%= render 'users/components/category', categories: @categories %>
       </div>
     </div>
-    <div class="col-md-8 mt-5 ml-5">
+    <div class="col-md-8 ml-5 mb-5">
       <!-- 商品詳細 -->
       <div class="card">
         <div class="card-header">
-          <h3><strong><%= @component.name %></strong></h3>
+          <h5><strong>成分カテゴリー名</strong></h5>
+        </div>
+        <div class="card-body">
+          <p class="mt-3"><%= @component.comp_category.name %></p>
+        </div>
+        <div class="card-header">
+          <h5><strong>成分名</strong></h5>
+        </div>
+        <div class="card-body">
+          <p class="mt-3"><%= @component.name %></p>
+        </div>
+        <div class="card-header">
+          <h5><strong>成分説明</strong></h5>
         </div>
         <div class="card-body">
           <p class="mt-3"><%= @component.explanation %></p>
+        </div>
+        <div class="card-header">
+          <h5><strong>成分ステータス</strong></h5>
+        </div>
+        <div class="card-body">
+          <p class="mt-3">
+            <% if @component.status? %>
+              <div class="text-success">現在使用可能</div>
+            <% else %>
+              <div class="text-secondary">現在使用不可</div>
+            <% end %>
+          </p>
         </div>
       </div>
     </div>

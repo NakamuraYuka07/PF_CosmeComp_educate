@@ -1,4 +1,5 @@
 class Users::ItemCategoriesController < ApplicationController
+  before_action :authenticate_user!
   def index
     @all_items = Item.all(status: true)
     @items = @all_items.page(params[:page]).per(8).reverse_order

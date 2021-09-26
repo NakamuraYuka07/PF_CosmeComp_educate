@@ -1,4 +1,5 @@
 class Users::CompCategoriesController < ApplicationController
+  before_action :authenticate_user!
   def index
     @all_components = Component.all(status: true)
     @components = @all_components.page(params[:page]).per(10).reverse_order
