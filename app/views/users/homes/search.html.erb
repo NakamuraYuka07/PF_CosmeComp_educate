@@ -4,11 +4,11 @@
       <!-- 利用者情報サイドバー  -->
       <%= render 'users/users/info', user: current_user %>
     </div>
-    <div class= "col-md-7 ml-5">
+    <div class= "col-md-7 ml-5 mb-5">
       <h3 class="mt-5">検索結果</h3>
       <!--items一覧 -->
       <% if @items.present? %> 
-        <table class="table table-hover table-inverse">
+        <table class="table table-hover table-inverse mb-5">
           <thead>
             <tr>
               <th>商品写真</th>
@@ -34,8 +34,8 @@
             <% end %>
           </tbody>
         </table>
-      <% else %>
-        <table class="table table-hover table-inverse">
+      <% elsif %>
+        <table class="table table-hover table-inverse mb-5">
           <thead>
             <tr>
               <th>成分名</th>
@@ -53,6 +53,8 @@
             <% end %>
           </tbody>
         </table>
+      <% else %>
+        <h3>検索結果はありません。</h3>
       <% end %>
     </div>
   </div>
