@@ -9,12 +9,14 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
   validates :email, presence: true
   validates :nickname, presence: true
   validates :birth_month, presence: true
   validates :birth_day, presence: true
   validates :age, presence: true
   validates :skin_type, presence: true
+  
   enum birth_month:
   { １月: 0, ２月: 1, ３月: 2, ４月: 3, ５月: 4, ６月: 5, ７月: 6, ８月: 7, ９月: 8, １０月: 9, １１月: 10, １２月: 11 }
 
