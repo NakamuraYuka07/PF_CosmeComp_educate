@@ -15,32 +15,34 @@
         <p class="card-text"><%= @item.item_category.name %></p>
         <h5 class="card-title">商品名</h5>
         <p class="card-text"><%= @item.name %></p>
-         <h5 class="card-title">評価</h5>
-         <div id="star">
-          <p class="card-text"></p>
-          <span class="star mr-1" data-score="<%= @item.rate %>">
-          <!-- 評価javascript -->
-          <script>
-            $(".star").raty({
-              readOnly: true,
-              score: function() {
-                return $(this).attr("data-score");
-              },
-              path: "/assets/"
-            });
-          </script>
+        <h5 class="card-title">評価</h5>
+          <div id="star">
+            <p class="card-text"></p>
+            <span class="star mr-1" data-score="<%= @item.rate %>">
+            <!-- 評価javascript -->
+              <script>
+                $(".star").raty({
+                  readOnly: true,
+                  score: function() {
+                    return $(this).attr("data-score");
+                  },
+                  path: "/assets/"
+                });
+              </script>
+            </span>
           </div>
-        <h5 class="card-title">商品説明</h5>
-        <p class="card-text"><%= @item.explanation %></p>
-        <h5 class="card-title">成分</h5>
-        <p class="card-text"><%= @item.component %></p>
-        <h5 class="card-title">販売ステータス</h5>
-        <p class="card-text"><% if @item.status? %>
-                <div class="text-success">販売</div>
-              <% else %>
-                <div class="text-secondary">廃盤</div>
-              <% end %></p>
-        <p class="card-text"><small class="text-muted"><%= @item.created_at%></small></p>
+          <h5 class="card-title">商品説明</h5>
+          <p class="card-text"><%= @item.explanation %></p>
+          <h5 class="card-title">成分</h5>
+          <p class="card-text"><%= @item.component %></p>
+          <h5 class="card-title">販売ステータス</h5>
+          <p class="card-text"><% if @item.status? %>
+            <div class="text-success">販売</div>
+            <% else %>
+            <div class="text-secondary">廃盤</div>
+            <% end %>
+          </p>
+          <p class="card-text"><small class="text-muted"><%= @item.created_at%></small></p>
       </div>
     </div>
   </div>

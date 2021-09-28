@@ -12,18 +12,18 @@
         </tr>
         <tbody>
           <% @users.each do |users| %>
-          <tr>
-          <td><%= users.id %></td>
-          <td><%= link_to  users.nickname, admin_user_path(users.id), class: "user_#{users.id} text-secondary" %></td>
-          <td><%= users.email %></td>
-          <td>
-            <% if users.is_deleted == true %>
-              <p class="text-secondary">退会済</p>
-            <% else %>
-              <p class="text-success">有効</p>
-            <% end %>
-          </td>
-          </tr>
+            <tr>
+              <td><%= users.id %></td>
+              <td><%= link_to  users.nickname, admin_user_path(users.id), class: "user_#{users.id} text-secondary" %></td>
+              <td><%= users.email %></td>
+              <td>
+                <% if users.is_deleted == true %>
+                  <p class="text-secondary">退会済</p>
+                <% else %>
+                  <p class="text-success">有効</p>
+                <% end %>
+              </td>
+            </tr>
           <% end %>
         </tbody>
       </table>

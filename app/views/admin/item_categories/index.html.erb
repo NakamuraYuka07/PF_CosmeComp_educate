@@ -23,14 +23,14 @@
           <th></th>
         </tr>
         <% @item_categories.each do |item_categories|%>
-        <tr>
-          <td>
-            <%= item_categories.name %>
-          </td>
-          <td>
-            <%= link_to "編集する", edit_admin_item_category_path(item_categories.id), class: "btn btn-outline-success" %>
-          </td>
-        </tr>
+          <tr>
+            <td>
+              <%= item_categories.name %>
+            </td>
+            <td>
+              <%= link_to "編集する", edit_admin_item_category_path(item_categories.id), class: "btn btn-outline-success" %>
+            </td>
+          </tr>
         <% end %>
       </table>
     </div>
