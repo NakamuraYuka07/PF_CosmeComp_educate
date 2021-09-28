@@ -56,7 +56,7 @@
           <% @favorite_list.each do |item| %>
           <tr>
             <td><%= attachment_image_tag item, :item_image , format: 'jpg', fallback: "no_image.jpg", size: "50x50" %></td>
-            <td><%= link_to item.name,item_path(item), class:"text-secondary" %></td>
+            <td><%= link_to item.name.truncate(10),item_path(item), class:"text-secondary" %></td>
             <td><%= item.item_category.name %></td>
             <td>
               <% if item.status == true %>
