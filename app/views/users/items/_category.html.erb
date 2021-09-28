@@ -9,11 +9,11 @@
       <td><%= link_to "ALL ITEMS", items_path, :style=> "color: #8f2e14;" %></td>
     </tr>
     <% categories.each do |category| %>
-    <tr>
-      <td>
-        <%= link_to category.name, item_search_path(category.id), :style=> "color: #96514d;" %>
-      </td>
-    </tr>
+      <tr>
+        <td>
+          <%= link_to category.name, item_search_path(category.id), :style=> "color: #96514d;" %>
+        </td>
+      </tr>
     <% end %>
   </tbody>
 </table>

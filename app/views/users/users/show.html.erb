@@ -40,36 +40,36 @@
             <% end %>
           </td>
         </tr>
-    </table>
-    <div class= "col-md-6 ml-5">
-      <table class="table table-hover">
-      <thead>
-        <tr class="thead" style="background-color: #bed3ca;">
-          <th>商品ID</th>
-          <th>商品名</th>
-          <th>商品カテゴリー</th>
-          <th>ステータス</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% if @favorite_list.present? %>
-          <% @favorite_list.each do |item| %>
-          <tr>
-            <td><%= attachment_image_tag item, :item_image , format: 'jpg', fallback: "no_image.jpg", size: "50x50" %></td>
-            <td><%= link_to item.name.truncate(10),item_path(item), class:"text-secondary" %></td>
-            <td><%= item.item_category.name %></td>
-            <td>
-              <% if item.status == true %>
-                <p class="text-success">販売</p>
-              <% else %>
-                <p class="text-secondary">廃盤</p>
-              <% end %>
-            </td>
-          </tr>
+      </table>
+      <div class= "col-md-6 ml-5">
+        <table class="table table-hover">
+          <thead>
+            <tr class="thead" style="background-color: #bed3ca;">
+              <th>商品ID</th>
+              <th>商品名</th>
+              <th>商品カテゴリー</th>
+              <th>ステータス</th>
+            </tr>
+          </thead>
+        <tbody>
+          <% if @favorite_list.present? %>
+            <% @favorite_list.each do |item| %>
+              <tr>
+                <td><%= attachment_image_tag item, :item_image , format: 'jpg', fallback: "no_image.jpg", size: "50x50" %></td>
+                <td><%= link_to item.name.truncate(10),item_path(item), class:"text-secondary" %></td>
+                <td><%= item.item_category.name %></td>
+                <td>
+                  <% if item.status == true %>
+                    <p class="text-success">販売</p>
+                  <% else %>
+                    <p class="text-secondary">廃盤</p>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
           <% end %>
-        <% end %>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
