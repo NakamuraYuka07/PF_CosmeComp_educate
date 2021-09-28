@@ -21,12 +21,12 @@
           <span class="star mr-1" data-score="<%= @item.rate %>">
           <!-- 評価javascript -->
           <script>
-            $('.star').raty({
+            $(".star").raty({
               readOnly: true,
               score: function() {
-                return $(this).attr('data-score');
+                return $(this).attr("data-score");
               },
-              path: '/assets/'
+              path: "/assets/"
             });
           </script>
           </div>
