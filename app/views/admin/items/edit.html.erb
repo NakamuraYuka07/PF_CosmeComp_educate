@@ -21,14 +21,14 @@
           </tr>
           <tr>
            <td><%= f.label :評価 ,class: "col-xs-3" %></td>
-           <td><div id="star"><%= f.hidden_field :rate, id: :review_star %></div></td>
+           <td><div id="star"><%= f.hidden_field :rate, id: :review_star, :value => 'score' %></div></td>
              <script>
                $('#star').raty({
                  size     : 36,
                  starOff:  '<%= asset_path('star-off.png') %>',
                  starOn : '<%= asset_path('star-on.png') %>',
                  starHalf: '<%= asset_path('star-half.png') %>',
-                 scoreName: 'post[rate]',
+                 scoreName: 'item[rate]',
                  half: true,
                });
              </script>
