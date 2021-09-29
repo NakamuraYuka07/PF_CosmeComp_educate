@@ -5,6 +5,7 @@ class Users::HomesController < ApplicationController
 
   def search
     keywaords_str = "#{params[:keyword]} #{params[:comp_keyword]}"
+    
     # キーワード分割
     if keywaords_str.present?
       keywords = keywaords_str.split(/[[:blank:]]+/).select(&:present?)

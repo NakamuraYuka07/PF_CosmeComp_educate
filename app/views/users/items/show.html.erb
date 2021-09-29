@@ -4,7 +4,7 @@
       <!-- 利用者情報サイドバー  -->
         <%= render 'users/users/info', user: current_user %>
       <!-- ジャンル検索サイドバー  -->
-      <div class="mt-5">
+      <div class="mt-5 mb-5">
         <%= render 'users/items/category', categories: @categories %>
       </div>
     </div>
@@ -49,7 +49,7 @@
           </div>
         </div>
         <!-- 商品詳細 -->
-        <div class="col-md-5 m-0">
+        <div class="col-md-5 m-0 mb-5">
           <div class="card">
             <div class="card-body">
               <h4 class="card-title">商品説明</h4>

@@ -1,10 +1,10 @@
 <div class="container-fluid">
-  <div class="row mt-5">
+  <div class="row mt-5 mb-5">
     <div class="col-md-2 ml-5">
       <!-- 利用者情報サイドバー  -->
       <%= render 'users/users/info', user: current_user %>
       <!-- ジャンル検索サイドバー  -->
-      <div class="mt-4">
+      <div class="mt-4 mb-">
       <%= render 'users/components/category', categories: @categories %>
       </div>
     </div>
@@ -25,7 +25,7 @@
             <% end %>
           </tbody>
         </table>
-        <%= paginate @components %>
+        <div class="col-6 offset-3 mt-3 mb-5 text-center text-dark"><%= paginate @components %></div>
       </div>
     </div>
   </div>
