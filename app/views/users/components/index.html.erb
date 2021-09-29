@@ -1,10 +1,10 @@
 <div class="container-fluid">
   <div class="row mt-5 mb-5">
-    <div class="col-md-2 ml-5">
+    <div class="col-md-2 ml-5 mb-5">
       <!-- 利用者情報サイドバー  -->
       <%= render 'users/users/info', user: current_user %>
       <!-- ジャンル検索サイドバー  -->
-      <div class="mt-4 mb-">
+      <div class="mt-4">
       <%= render 'users/components/category', categories: @categories %>
       </div>
     </div>
