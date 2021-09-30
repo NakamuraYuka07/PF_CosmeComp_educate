@@ -19,9 +19,11 @@
           </thead>
           <tbody>
             <% @components.each do |component| %>
+            <tr>
               <td><%= component.comp_category.name %></td>
               <td><%= link_to component.name.truncate(15), component_path(component), class:"text-secondary" %></td>
               <td><%= component.explanation.truncate(25) %></td>
+            </tr>  
             <% end %>
           </tbody>
         </table>
