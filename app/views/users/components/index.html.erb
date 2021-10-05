@@ -1,9 +1,7 @@
 <div class="container-fluid">
   <div class="row mt-5 mb-5">
     <div class="col-md-2 ml-5 mb-5">
-      <!-- 利用者情報サイドバー  -->
       <%= render 'users/users/info', user: current_user %>
-      <!-- ジャンル検索サイドバー  -->
       <div class="mt-4">
       <%= render 'users/components/category', categories: @categories %>
       </div>
@@ -19,11 +17,11 @@
           </thead>
           <tbody>
             <% @components.each do |component| %>
-            <tr>
-              <td><%= component.comp_category.name %></td>
-              <td><%= link_to component.name.truncate(15), component_path(component), class:"text-secondary" %></td>
-              <td><%= component.explanation.truncate(25) %></td>
-            </tr>  
+              <tr>
+                <td><%= component.comp_category.name %></td>
+                <td><%= link_to component.name.truncate(15), component_path(component), class:"text-secondary" %></td>
+                <td><%= component.explanation.truncate(25) %></td>
+              </tr>  
             <% end %>
           </tbody>
         </table>

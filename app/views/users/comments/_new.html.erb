@@ -10,7 +10,7 @@
           <li class="nav-item  m-0 ml-2">
             <a><%= comment.user.nickname %></a>
           </li>
-          <li class="nav-item ml-5">
+          <li class="nav-item ml-3">
             <small><%= comment.created_at.strftime('%Y/%m/%d') %></small>
           </li>
           <li class="nav-item ml-2">
@@ -20,6 +20,20 @@
               <% end %>
             </a>
           </li>
+          <small>
+            <li class="nav-item ml-2 mt-1">
+              <%#= comment.score %>
+              <p class="sentiment-score">
+                <% if comment.score >= 0.3 %>
+                  😊
+                <% elsif comment.score >= -0.3 %>
+                  🙂
+                <% else %>
+                  😢
+                <% end %>
+              </p>
+            </li>
+          </small>
         </ul>
       </div>
       <div class="card-body">

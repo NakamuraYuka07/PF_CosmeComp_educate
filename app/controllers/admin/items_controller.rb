@@ -3,6 +3,7 @@ class Admin::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @item.score = Language.get_data(item_params[:body])
   end
 
   def index

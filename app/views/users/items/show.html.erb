@@ -19,17 +19,18 @@
           <p class="card-text"></p>
           <span class="star mr-1" data-score="<%= @item.rate %>">
           <!-- 評価javascript -->
-          <script>
-            $(".star").raty({
-              starOff:  '<%= asset_path('star-off.png') %>',
-              starOn : '<%= asset_path('star-on.png') %>',
-              starHalf: '<%= asset_path('star-half.png') %>',
-              readOnly: true,
-              score: function() {
-                return $(this).attr("data-score");
-              },
-            });
-          </script>
+            <script>
+              $(".star").raty({
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf: '<%= asset_path('star-half.png') %>',
+                readOnly: true,
+                score: function() {
+                  return $(this).attr("data-score");
+                },
+              });
+            </script>
+          </span>
           </div>
             <%= form_with model:[@item, @comment], data: {remote: true} do |f| %>
               <%= render "layouts/error", model: f.object %>
@@ -42,7 +43,7 @@
             <!--非同期通信テンプレート-->
             <div class="d-flex p-2 bd-highlight">
               <div id= "comments<%= @item.id %>">
-                <%= render 'users/comments/new', item: @item%>
+                <%= render 'users/comments/new', item: @item %>
                 </div>
               </div>
             </div>
