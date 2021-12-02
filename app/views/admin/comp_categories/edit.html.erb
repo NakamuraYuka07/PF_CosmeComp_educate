@@ -1,13 +1,13 @@
 <!-- 成分カテゴリー編集画面-->
 <div class="container">
-  <div class="mt-4 mx-3 my-3 col-6">
-    <h4 class="p-3 mb-5 w-50 text-center" style="color: #494949; background: #80aba9; border-left: solid 5px #2f4f4f;">成分カテゴリー編集</h4>
+  <div class="mt-4 mx-3 my-3 mt-5">
+    <h4 class="col-md-4 offset-4 p-3 mb-5 w-50 text-center" style="color: #494949; background: #FFF8DC;">成分カテゴリー編集</h4>
       <%= form_with model: @comp_category, url: admin_comp_category_path(@comp_category), method: :patch, local: true do |f| %>
       <%= render "layouts/error", model: f.object %>
-    <div class="my-5">
-      <b><%= f.label :成分カテゴリー名 %></b>
-      <%= f.text_field :name, class: "mx-5" %>
-      <%= f.submit "変更を保存", class: "btn btn-outline-success" %>
+    <div class="col-md-8 offset-3">
+      <b><%= f.label :成分カテゴリー名, class: "mt-1"; %></b>
+        <%= f.text_field :name, class: "mx-5" %>
+        <%= f.submit "変更を保存", class: "btn btn-outline-success" %>
     </div>
     <% end %>
   </div>
