@@ -1,16 +1,17 @@
 <div class="container">
   <div class="row mt-4 mb-3">
    <div class="d-flex justify-content-between w-100">
-     <h4 class="p-3 mb-2 text-dark w-25 text-center" style="color: #494949; background: #FFF8DC;">商品一覧</h4>
+     <h4 class="offset-2 p-3 mb-2 text-dark w-25 text-center" style="color: #494949; background: #FFF8DC;">商品一覧</h4>
      <h5>
        <%= link_to "商品を追加する" ,new_admin_item_path, class: "btn btn-outline-success text-center" %>
        <%= link_to "商品カテゴリーを追加する" ,admin_item_categories_path, class: "btn btn-outline-success text-center"%>
      </h5>
    </div>
-    <table class="table table-hover mt-4 mb-5">
+   <div class="col-md-8 offset-2 mb-5">
+    <table class="table table-hover mt-4 mb-3">
       <thead>
         <tr class="thead" style="background-color: #FFF8DC;">
-          <th>商品ID</th>
+          <th></th></th>
           <th>商品名</th>
           <th>商品カテゴリー</th>
           <th>ステータス</th>
