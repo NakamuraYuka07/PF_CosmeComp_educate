@@ -36,17 +36,17 @@
             </li>
           <!-- 管理者がログインしている時 -->
           <% elsif admin_signed_in? %>
-            <li class="nav-item">
+            <li class="nav-item mr-3">
               <%= link_to admin_users_path do %>
                 <i class="fas fa-users text-black-50"> 利用者一覧 </i>
               <% end %>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mr-3">
               <%= link_to admin_items_path do %>
                 <i class="fas fa-list text-black-50"> 商品一覧 </i>
               <% end %>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mr-3">
               <%= link_to admin_components_path do %>
                 <i class="fas fa-list text-black-50"> 成分一覧 </i>
               <% end %>
@@ -77,5 +77,4 @@
       </div>
     </div>
   </nav>
-  <!-- 検索フォーム -->
 </header>
